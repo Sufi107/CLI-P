@@ -8,40 +8,110 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-B9ECD7QM09');
     </script>
-    <!-- Google tag (gtag.js) -->
-    <meta name="description"
-        content="Command Line based Portfolio is a terminal emulator based on the One Dark theme. It is a simple and easy to use terminal emulator.">
-    <meta name="keywords"
-        content="Command Line based Portfolio, One Dark Shell, One Dark, One-Dark, Terminal, Terminal Emulator">
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Mohammed Sufiyan - Cloud Engineer Intern Portfolio. Interactive terminal-style portfolio showcasing cloud engineering skills, projects, and experience.">
+    <meta name="keywords" content="Mohammed Sufiyan, Cloud Engineer, AWS, Docker, Terraform, Portfolio, Terminal, Interactive">
     <meta name="author" content="Mohammed Sufiyan">
     <meta name="language" content="English">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Command Line based Portfolio</title>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Mohammed Sufiyan - Cloud Engineer Portfolio">
+    <meta property="og:description" content="Interactive terminal-style portfolio showcasing cloud engineering expertise">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sufiyan.dev">
+    <meta property="og:image" content="https://sufiyan.dev/images/screenshot.png">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mohammed Sufiyan - Cloud Engineer Portfolio">
+    <meta name="twitter:description" content="Interactive terminal-style portfolio showcasing cloud engineering expertise">
+    <meta name="twitter:image" content="https://sufiyan.dev/images/screenshot.png">
+    
+    <title>Mohammed Sufiyan - Cloud Engineer Portfolio</title>
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
     <link rel="icon" type="image/x-icon" href="images/fav-icon.png" />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" as="style">
+    <link rel="preload" href="js/config.js" as="script">
+    <link rel="preload" href="js/commands.js" as="script">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#282C34">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div id="terminal">
-        <a id="before"></a>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-text">Initializing Terminal...</div>
     </div>
-    <div id="command" onclick="$('texter').focus();">
-        <textarea type="text" id="texter" onkeyup="typeIt(this, event)"
-            onkeydown="typeIt(this, event); moveIt(this.value.length, event)" onkeypress="typeIt(this, event);"
-            autofocus></textarea>
-        <div id="liner">
-            <span id="typer"></span><b class="cursor" id="cursor">█</b>
+    
+    <!-- Terminal Controls -->
+    <div class="terminal-controls">
+        <button class="control" id="theme-toggle" onclick="toggleTheme()" title="Toggle Theme">🌙</button>
+        <button class="control" id="font-size-toggle" onclick="cycleFontSize()" title="Change Font Size">A</button>
+        <button class="control" onclick="showHelpModal()" title="Help (Ctrl+?)">❓</button>
+        <button class="control" onclick="minimizeTerminal()" title="Minimize">➖</button>
+        <button class="control" onclick="toggleFullscreen()" title="Fullscreen">⛶</button>
+    </div>
+    
+    <!-- Terminal Container -->
+    <div id="terminal-container">
+        <div id="terminal">
+            <a id="before"></a>
+        </div>
+        
+        <div id="command" onclick="focusInput();">
+            <textarea type="text" id="texter" onkeyup="typeIt(this, event)"
+                onkeydown="handleKeyDown(this, event); moveIt(this.value.length, event)" 
+                onkeypress="typeIt(this, event);" autofocus></textarea>
+            <div id="liner">
+                <span id="typer"></span><b class="cursor" id="cursor">█</b>
+            </div>
         </div>
     </div>
-    <script src="js/cursor.js"></script>
+    
+    <!-- Command Suggestions -->
+    <div id="suggestions"></div>
+    
+    <!-- Help Modal -->
+    <div id="help-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeHelpModal()">&times;</button>
+            <h2>🚀 Terminal Portfolio Help</h2>
+            <div id="help-content"></div>
+            <br>
+            <p><strong>Keyboard Shortcuts:</strong></p>
+            <ul>
+                <li><strong>Tab</strong> - Auto-complete commands</li>
+                <li><strong>↑/↓</strong> - Navigate command history</li>
+                <li><strong>Ctrl+L</strong> - Clear terminal</li>
+                <li><strong>Ctrl+R</strong> - Reload terminal</li>
+                <li><strong>Ctrl+Shift+T</strong> - Toggle theme</li>
+                <li><strong>Ctrl+?</strong> or <strong>F1</strong> - Show this help</li>
+                <li><strong>Esc</strong> - Close modals/suggestions</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
     <script src="js/commands.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/terminal.js"></script>
+    <script src="js/ui.js"></script>
     <script src="js/main.js"></script>
-    <script src="/assets/js/url-handler.js"></script>
+    <script src="assets/js/url-handler.js"></script>
 </body>
 
 </html>

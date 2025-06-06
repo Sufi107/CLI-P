@@ -1,0 +1,20 @@
+{
+  "name": "Mohammed Sufiyan - Terminal Portfolio",
+  "short_name": "Terminal Portfolio",
+  "description": "Interactive terminal-style portfolio showcasing cloud engineering expertise",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#282C34",
+  "theme_color": "#61AFEF",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "images/fav-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["portfolio", "developer", "cloud"],
+  "lang": "en",
+  "dir": "ltr"
+}

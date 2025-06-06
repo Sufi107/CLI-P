@@ -1,13 +1,17 @@
 {
   "name": "terminal-project",
   "version": "1.0.0",
-  "description": "A terminal-style web application",
+  "description": "A web-based terminal emulator",
   "main": "index.html",
   "scripts": {
-    "dev": "python3 -m http.server 8000",
-    "start": "python3 -m http.server 8000"
+    "dev": "npx serve . -p 8000",
+    "start": "npx serve . -p 8000",
+    "build": "echo 'No build step required for static site'"
   },
-  "keywords": ["terminal", "web", "javascript"],
+  "devDependencies": {
+    "serve": "^14.2.1"
+  },
+  "keywords": ["terminal", "web", "emulator"],
   "author": "",
   "license": "MIT"
 }

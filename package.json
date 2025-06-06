@@ -1,0 +1,13 @@
+{
+  "name": "terminal-project",
+  "version": "1.0.0",
+  "description": "A terminal-style web application",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "start": "python3 -m http.server 8000"
+  },
+  "keywords": ["terminal", "web", "javascript"],
+  "author": "",
+  "license": "MIT"
+}
